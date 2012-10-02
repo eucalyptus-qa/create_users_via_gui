@@ -3,6 +3,21 @@ use strict;
 
 ############################### SUB-ROUTINES #####################################
 
+###	ADDED FOR 3.2 branch testing	10/01/12
+sub is_euca_version_from_memo{
+        if( $ENV{'QA_MEMO'} =~ /^EUCA_VERSION=(.+)\n/m ){
+                my $extra = $1;
+                $extra =~ s/\r//g;
+                print "FOUND in MEMO\n";
+                print "EUCA_VERSION=$extra\n";
+                $ENV{'QA_MEMO_EUCA_VERSION'} = $extra;
+                return 1;
+        };
+        return 0;
+};
+
+
+###	ADDED FOR 3.2 branch testing	10/01/12
 sub execute_command_on_NEW_SEL{
 
 	my $clc_ip = shift @_;

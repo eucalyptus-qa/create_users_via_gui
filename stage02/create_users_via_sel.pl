@@ -43,17 +43,17 @@ print "\n";
 my $this_user = "gui-user-00";
 
 ###	QUICK HACK TO MAKE IT WORK WITH 3.2
-if( 1 ){
+if( is_euca_version_from_memo() == 1 && ($ENV{'QA_MEMO_EUCA_VERSION'} eq "3.1" || $ENV{'QA_MEMO_EUCA_VERSION'} eq "3.0") ){		### FOR 3.1
 
-	$lines = execute_command_on_NEW_SEL($ENV{'QA_CLC_IP'}, "admin_create_user");
-	print $lines . "\n";
-
-}else{
 	$cmd = "create_user.pl $ENV{'QA_CLC_IP'} $this_user";
 
 	$lines = execute_command_on_SEL($cmd);
 
 	validate_output($lines);
+
+}else{												### For 3.2
+	$lines = execute_command_on_NEW_SEL($ENV{'QA_CLC_IP'}, "admin_create_user");
+	print $lines . "\n";
 };
 
 
