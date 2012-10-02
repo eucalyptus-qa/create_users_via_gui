@@ -12,7 +12,7 @@ sub execute_command_on_NEW_SEL{
 	my $SSH_PREFIX = "ssh -o BatchMode=yes -o ServerAliveInterval=3 -o ServerAliveCountMax=10 -o StrictHostKeyChecking=no root\@$SEL_SERVER_IP";
 	
 	my $sel_cmd = "cd /root/eucalyptus_admin_ui_test; export DISPLAY=:0;";
-	$sel_cmd .= " ./runtest_admin_create_user.py -i $clc_ip -p 8443 -t $test_case";
+	$sel_cmd .= " ./runtest_admin_manage_user.py -i $clc_ip -p 8443 -t $test_case";
 
 	my $cmd = $SSH_PREFIX . " \"" . $sel_cmd . "\"";
 
