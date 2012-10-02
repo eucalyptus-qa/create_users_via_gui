@@ -3,6 +3,25 @@ use strict;
 
 ############################### SUB-ROUTINES #####################################
 
+sub execute_command_on_NEW_SEL{
+
+	my $clc_ip = shift @_;
+
+	my $SEL_SERVER_IP = "192.168.51.152";
+	my $SSH_PREFIX = "ssh -o BatchMode=yes -o ServerAliveInterval=3 -o ServerAliveCountMax=10 -o StrictHostKeyChecking=no root\@$SEL_SERVER_IP";
+	
+	my $sel_cmd = "cd /root/eucalyptus_admin_ui_test; export DISPLAY=:0;";
+	$sel_cmd .= " ./runtest_admin_create_user.py -i $clc_ip  -p 8443 -t admin_create_user";
+
+	my $cmd = $SSH_PREFIX . " \"" . $sel_cmd . "\"";
+
+	print "CMD: $cmd\n";
+	my $output = `$cmd`;
+	print "\n";
+	return  $output;
+
+};
+
 
 sub execute_command_on_SEL{
 
