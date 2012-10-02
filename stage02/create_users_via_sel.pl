@@ -45,7 +45,7 @@ my $this_user = "gui-user-00";
 ###	QUICK HACK TO MAKE IT WORK WITH 3.2
 if( 1 ){
 
-	$lines = execute_command_on_SEL($ENV{'QA_CLC_IP'});
+	$lines = execute_command_on_NEW_SEL($ENV{'QA_CLC_IP'});
 	print $lines . "\n";
 
 }else{
