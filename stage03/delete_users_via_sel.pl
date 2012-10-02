@@ -41,12 +41,21 @@ print "\n";
 ### Run SEL script
 ###
 my $this_user = "gui-user-00";
-$cmd = "delete_user.pl $ENV{'QA_CLC_IP'} $this_user";
 
-$lines = execute_command_on_SEL($cmd);
+###	QUICK HACK TO MAKE IT WORK WITH 3.2
+if( 1 ){
 
-validate_output($lines);
+	$lines = execute_command_on_NEW_SEL($ENV{'QA_CLC_IP'}, "admin_delete_user");
+	print $lines . "\n";
 
+}else{
+
+	$cmd = "delete_user.pl $ENV{'QA_CLC_IP'} $this_user";
+
+	$lines = execute_command_on_SEL($cmd);
+
+	validate_output($lines);
+};
 
 
 ###
