@@ -1,7 +1,19 @@
+create_users_via_gui
+====================
+
+## Description
+
+Create a user using Admin Console
+
+## Procedure
+
+1. Initialize the GUI for the admin by logging in and setting email and password
+2. Create 1 user through the GUI
+
+
 # Eucalyptus Testunit Framework
 
 Eucalyptus Testunit Framework is designed to run a list of test scripts written by Eucalyptus developers.
-
 
 
 ## How to Set Up Testunit Environment
